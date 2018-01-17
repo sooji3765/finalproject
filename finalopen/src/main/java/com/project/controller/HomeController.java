@@ -60,28 +60,28 @@ public class HomeController {
 		return "main";
 	
 	}
-	
+	 
 	//로그인 하기전 체크
-	@RequestMapping(value = "/logincheck.do", method = RequestMethod.GET)
-	public String logincheck(@RequestParam("id") String id, 
-			@RequestParam("nickname") String nickname, @RequestParam("profile_image") String image,
-			@RequestParam("type") String type, User user, HttpSession session) {
-		
+	@RequestMapping(value = "/logincheck.do")
+	public String logincheck(String id, String nickname, String image,String type, HttpSession session) {
+		System.out.println("===>> "+id);
 		String redirectURI ="";
 		
 		session.setAttribute("memId", id);
-		session.setAttribute("profile", image);
+		session.setAttribute("image", image);
 		session.setAttribute("nickname", nickname);
+		User user = new User();
 		
 		// DB에 저장된 USER 이면  main으로
 		if(id.equals(userService.checkMember(id))){
 			redirectURI = "redirect:main.do";	
 		}else {
-		
+			System.out.println("===>> "+user);
 			user.setM_id(id);
 			user.setM_nickname(nickname);
 			user.setM_logintype(type);
 			user.setM_profile(image);
+			user.setR_num("2");
 			
 			userService.insert(user);
 			

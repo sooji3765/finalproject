@@ -9,7 +9,7 @@ public class User {
 	private String m_logintype;
 	private String m_profile;
 	private Timestamp m_regdate;
-	private String m_rum;
+	private String r_num;
 	
 	public User() {}
 	
@@ -43,12 +43,15 @@ public class User {
 	public void setM_regdate(Timestamp m_regdate) {
 		this.m_regdate = m_regdate;
 	}
-	public String getM_rum() {
-		return m_rum;
+
+	public String getR_num() {
+		return r_num;
 	}
-	public void setM_rum(String m_rum) {
-		this.m_rum = m_rum;
+
+	public void setR_num(String r_num) {
+		this.r_num = r_num;
 	}
+	
 	
 	
 
