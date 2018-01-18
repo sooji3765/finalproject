@@ -66,7 +66,7 @@ public class HomeController {
 	public String logincheck(String id, String nickname, String image,String type, HttpSession session) {
 		System.out.println("===>> "+id);
 		String redirectURI ="";
-		
+		String defaultImage = "/resource/img/profile.png";
 		session.setAttribute("memId", id);
 		session.setAttribute("image", image);
 		session.setAttribute("nickname", nickname);
@@ -77,7 +77,15 @@ public class HomeController {
 			redirectURI = "redirect:main.do";	
 		}else {
 			System.out.println("===>> "+user);
+			
 			user.setM_id(id);
+			
+			if(image.equals("undefined")) {
+				user.setM_profile(defaultImage);
+			}
+			else {
+				user.setM_profile(image);
+			}
 			user.setM_nickname(nickname);
 			user.setM_logintype(type);
 			user.setM_profile(image);
