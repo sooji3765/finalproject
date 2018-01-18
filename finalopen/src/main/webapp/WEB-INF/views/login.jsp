@@ -97,13 +97,28 @@
 	<!-- 네이버아디디로로그인 초기화 Script -->
 	<script type="text/javascript">
 	var naverLogin = new naver.LoginWithNaverId(
-		{
+		{	
+			
 			clientId: "PzaF5F1zio7wggH2yAAL",
 			callbackUrl: "http://localhost:8080/login.do",
 			isPopup: false, /* 팝업을 통한 연동처리 여부 */
 			loginButton: {color: "green", type: 3, height: 50} /* 로그인 버튼의 타입을 지정 */
 		}
-		);
+	);
+	
+	naverLogin.getLoginStatus(function (status) {
+		if (status) {
+			
+			var nickname = naverLogin.user.getNickName();
+			var image = naverLogin.user.getProfileImage();	
+			var id = naverLogin.user.getId();
+			location.href="/logincheck.do?id="+id+"&nickname="+nickname+"&image="+profile_image+"&type=naver";
+		
+		} else {
+			console.log("AccessToken이 올바르지 않습니다.");
+		}
+	});
+	
 	
 		/* 설정정보를 초기화하고 연동을 준비 */
 		naverLogin.init();
