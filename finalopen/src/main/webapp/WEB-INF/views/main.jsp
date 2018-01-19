@@ -30,7 +30,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Open Refrigerator</a>
+        <a class="navbar-brand js-scroll-trigger" href="/main.do">Open Refrigerator</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -63,10 +63,14 @@
     <!-- Header -->
     <header class="masthead bg-primary text-white text-center">
       <div class="container">
-        <img class="img-fluid mb-5 d-block mx-auto" src="${image}" width="256" height="256" alt="">
-        <h1 class="text-uppercase mb-0">Start Bootstrap</h1>
+        <h1 class="text-uppercase mb-0">레시피를 검색하세요 :D</h1>
         <hr class="star-light">
-        <h2 class="font-weight-light mb-0">${nickname}</h2>
+        <div class="input-group">
+ 		 <input type="text" class="form-control" placeholder="검색 키워드를 입력하세요!">
+  		 <span class="input-group-btn">
+		<button class="btn btn-secondary" type="button">찾기</button>
+  		</span>
+		</div>
       </div>
     </header>
 
@@ -137,6 +141,7 @@
             </a>
           </div>
         </div>
+        <a>더 보기 >></a>
       </div>
     </section>
 

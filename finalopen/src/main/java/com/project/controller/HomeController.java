@@ -89,7 +89,6 @@ public class HomeController {
 			user.setM_nickname(nickname);
 			user.setM_logintype(type);
 			user.setM_profile(image);
-			user.setR_num("2");
 			
 			userService.insert(user);
 			

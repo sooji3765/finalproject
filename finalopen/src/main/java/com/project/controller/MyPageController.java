@@ -1,6 +1,7 @@
 package com.project.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -19,11 +20,13 @@ public class MyPageController {
 	private UserService userService;
 	
 	@RequestMapping(value="/myPageMain.do")
-	public ModelAndView myPageMain(HttpServletRequest request, User user) {
+	public ModelAndView myPageMain(HttpSession session) {
 		ModelAndView view = new ModelAndView();
-		
-		view.setViewName("/myPageMain");
-		String id = (String) request.getAttribute("memId");
+		User user = new User();
+		view.setViewName("/myPage/myPageMain");
+	
+		String id = (String) session.getAttribute("memId");
+		System.out.println(id);
 		user = userService.selectUser(id);
 		
 		view.addObject(user);
@@ -32,8 +35,9 @@ public class MyPageController {
 	}
 	
 	@RequestMapping(value="/modify.do")
-	public String modify() {
-		return "modify";
+	public String modify(String rnum) {
+		
+		return "/myPage/modify";
 	}
 	
 	@RequestMapping(value="/modifyPro.do")
