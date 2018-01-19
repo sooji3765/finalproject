@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.project.mybatis.UserMapper;
 
 @Service
-public class UserServicsImpl implements UserService{
+public class UserServiceImpl implements UserService{
 
 	@Autowired
 	private UserMapper userMapper;
