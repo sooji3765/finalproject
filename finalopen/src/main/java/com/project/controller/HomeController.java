@@ -13,8 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import com.project.refri.RefriService;
 import com.project.user.User;
 import com.project.user.UserService;
 
@@ -26,6 +26,9 @@ public class HomeController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private RefriService refriService;
+	
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -75,6 +78,7 @@ public class HomeController {
 		// DB에 저장된 USER 이면  main으로
 		if(id.equals(userService.checkMember(id))){
 			redirectURI = "redirect:main.do";	
+		// 신규회원이면 냉장고 재료 선택 mainRef로
 		}else {
 			System.out.println("===>> "+user);
 			
@@ -92,7 +96,9 @@ public class HomeController {
 			
 			userService.insert(user);
 			
-			redirectURI ="redirect:main.do";
+			refriService.create(id);
+			
+			redirectURI ="redirect:/ref/mainRef.do";
 		}
 		return redirectURI;
 	}
