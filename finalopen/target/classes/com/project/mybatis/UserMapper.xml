@@ -6,12 +6,8 @@
 <mapper namespace="com.project.mybatis.UserMapper">
    
     <insert id="insert" parameterType="User">
-    	<selectKey keyProperty="m_rnum" resultType="int" order="BEFORE">
-    		select SEQ_M_ID.nextval FROM DUAL
-    	</selectKey>
-        INSERT INTO member(m_id, m_nickname, m_profile, m_logintype, m_regdate, m_rnum) 
-        VALUES (#{m_id}, #{m_nickname}, #{m_profile}, #{m_logintype}, 
-        sysdate, #{m_rnum})
+    	INSERT INTO member(m_id, m_nickname, m_picture, m_logintype, m_regdate, r_num) 
+        VALUES (#{m_id}, #{m_nickname}, #{m_profile}, #{m_logintype}, sysdate, r_num_seq.nextval)
     </insert>
     
     <select id="checkMember" parameterType="String" resultType="String">
@@ -25,5 +21,6 @@
     <update id="modifyUser" parameterType="User">
     	UPDATE member set m_rum=#{m_rnum} WHERE m_id=#{m_id} 
     </update>
+ 
  
 </mapper>

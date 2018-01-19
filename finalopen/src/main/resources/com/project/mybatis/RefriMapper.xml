@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.project.mybatis.RefriMapper">
+   <insert id="create" parameterType="String">    
+    	CREATE TABLE refri_${m_id}(
+    		r_num varchar2(100) primary key,
+    		r_date date,
+    		r_count number,
+    		r_item varchar2(100),
+    		r_item_amount number,
+    		r_item_unit varchar2(100),
+    		r_item_space varchar2(100),
+    		r_item_time number,
+    		r_item_state varchar2(100),
+    		type_id varchar2(100);
+    		ingredients_id varchar2(100)
+    	)
+    </insert>   
+   
+    <insert id="insert" parameterType="Refri">
+    	INSERT INTO refri_${m_id}(r_num, r_date) VALUES (#{r_num},sysdate)
+    </insert>
+    
+</mapper>

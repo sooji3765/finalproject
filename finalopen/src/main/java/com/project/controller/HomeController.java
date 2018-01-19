@@ -14,7 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import com.project.refri.Refri;
+import com.project.refri.RefriService;
 import com.project.user.User;
 import com.project.user.UserService;
 
@@ -26,7 +27,7 @@ public class HomeController {
 	
 	@Autowired
 	private UserService userService;
-	
+	private RefriService refriService;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
@@ -60,30 +61,31 @@ public class HomeController {
 		return "main";
 	
 	}
-	
+	 
 	//로그인 하기전 체크
-	@RequestMapping(value = "/logincheck.do", method = RequestMethod.GET)
-	public String logincheck(@RequestParam("id") String id, 
-			@RequestParam("nickname") String nickname, @RequestParam("profile_image") String image,
-			@RequestParam("type") String type, User user, HttpSession session) {
-		
+	@RequestMapping(value = "/logincheck.do")
+	public String logincheck(String id, String nickname, String image,String type, HttpSession session) {
 		String redirectURI ="";
 		
 		session.setAttribute("memId", id);
-		session.setAttribute("profile", image);
+		session.setAttribute("image", image);
 		session.setAttribute("nickname", nickname);
+		User user = new User();
 		
 		// DB에 저장된 USER 이면  main으로
 		if(id.equals(userService.checkMember(id))){
 			redirectURI = "redirect:main.do";	
 		}else {
-		
+			//DB에 새로운 회원 insert
 			user.setM_id(id);
 			user.setM_nickname(nickname);
 			user.setM_logintype(type);
-			user.setM_profile(image);
-			
+			user.setM_profile(image);			
 			userService.insert(user);
+			////// 여기까진 진행되다가 안된다.
+
+			refriService.create(id);
+			
 			
 			redirectURI ="redirect:main.do";
 		}
