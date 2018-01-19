@@ -52,7 +52,4 @@ public class User {
 		this.r_num = r_num;
 	}
 	
-	
-	
-
 }

@@ -72,7 +72,7 @@
         	  Kakao.API.request({
                   url: '/v1/user/me',
                   success: function(res) {
-                    alert(JSON.stringify(res));
+                    //alert(JSON.stringify(res));
                     id = res.id;
                     nickname = res.properties.nickname;
                     profile_image=res.properties.profile_image;

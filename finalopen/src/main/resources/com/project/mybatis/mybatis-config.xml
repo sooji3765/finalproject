@@ -7,10 +7,12 @@
        
     <typeAliases>
         <typeAlias type="com.project.user.User" alias="User" />
+    	<typeAlias type="com.project.review.Review" alias="Review"/>
     </typeAliases>
  
     <mappers>
         <mapper resource="/com/project/mybatis/UserMapper.xml" />
+    	<mapper resource="/com/project/mybatis/ReviewMapper.xml"/>
     </mappers>
  
 </configuration>
