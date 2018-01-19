@@ -22,4 +22,5 @@
     	UPDATE member set m_rum=#{m_rnum} WHERE m_id=#{m_id} 
     </update>
  
+ 
 </mapper>
