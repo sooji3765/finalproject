@@ -9,9 +9,7 @@ public class User {
 	private String m_logintype;
 	private String m_profile;
 	private Timestamp m_regdate;
-	private String m_ref;
-	
-	
+	private String m_ref;	
 
 	public User() {}
 	
