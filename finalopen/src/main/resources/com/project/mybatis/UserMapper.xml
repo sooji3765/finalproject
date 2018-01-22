@@ -6,8 +6,8 @@
 <mapper namespace="com.project.mybatis.UserMapper">
    
     <insert id="insert" parameterType="User">
-    	INSERT INTO member(m_id, m_nickname, m_picture, m_logintype, m_regdate, r_num) 
-        VALUES (#{m_id}, #{m_nickname}, #{m_profile}, #{m_logintype}, sysdate, r_num_seq.nextval)
+    	INSERT INTO member(m_id, m_nickname, m_picture, m_logintype, m_regdate) 
+        VALUES (#{m_id}, #{m_nickname}, #{m_profile}, #{m_logintype}, sysdate)
     </insert>
     
     <select id="checkMember" parameterType="String" resultType="String">
