@@ -10,6 +10,8 @@
     	<typeAlias type="com.project.review.Review" alias="Review"/>
     	<typeAlias type="com.project.refri.Refri" alias="Refri"/>
     	<typeAlias type="com.project.ingre.Ingredients" alias="Ingredients"/>
+
+
     </typeAliases>
  
     <mappers>

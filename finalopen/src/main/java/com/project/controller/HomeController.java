@@ -87,13 +87,13 @@ public class HomeController {
 			user.setM_id(id);
 			if(image.equals("undefined")) {
 				user.setM_profile(defaultImage);
-			}			
+			}
 			user.setM_nickname(nickname);
 			user.setM_logintype(type);
 			user.setM_profile(image);
-			
+
 			userService.insert(user);
-	
+
 			refriService.create(id);
 			
 			redirectURI ="redirect:/ref/mainRef.do";
