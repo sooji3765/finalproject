@@ -94,23 +94,16 @@ public class HomeController {
 			if(image.equals("undefined")) {
 				user.setM_profile(defaultImage);
 			}
-			else {
-				user.setM_profile(image);
-			}
+		
 			user.setM_nickname(nickname);
 			user.setM_logintype(type);
 
 			user.setM_profile(image);
 			
 
-			user.setM_profile(image);			
-
 			userService.insert(user);
 			////// 여기까진 진행되다가 안된다.
 
-			refriService.create(id);
-			
-			
 			refriService.create(id);
 			
 			redirectURI ="redirect:/ref/mainRef.do";

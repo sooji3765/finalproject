@@ -10,8 +10,6 @@
     	INSERT INTO member(m_id, m_nickname, m_picture, m_logintype, m_regdate) 
         VALUES (#{m_id}, #{m_nickname}, #{m_profile}, #{m_logintype}, sysdate)
 
-    	INSERT INTO member(m_id, m_nickname, m_picture, m_logintype, m_regdate, r_num) 
-        VALUES (#{m_id}, #{m_nickname}, #{m_profile}, #{m_logintype}, sysdate, r_num_seq.nextval)
 
     </insert>
     
