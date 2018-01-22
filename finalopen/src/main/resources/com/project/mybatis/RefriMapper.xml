@@ -16,6 +16,8 @@
     		r_item_time number,
     		r_item_state varchar2(100),
     		type_id varchar2(100),
+    		ingredients_id varchar2(100)
+    		)
 	</insert>
   
    

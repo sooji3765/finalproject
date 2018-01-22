@@ -9,7 +9,10 @@ public class User {
 	private String m_logintype;
 	private String m_profile;
 	private Timestamp m_regdate;
+	private String m_ref;
 	
+	
+
 	public User() {}
 	
 	public String getM_id() {
@@ -41,6 +44,13 @@ public class User {
 	}
 	public void setM_regdate(Timestamp m_regdate) {
 		this.m_regdate = m_regdate;
+	}
+	public String getM_ref() {
+		return m_ref;
+	}
+
+	public void setM_ref(String m_ref) {
+		this.m_ref = m_ref;
 	}
 	
 }

@@ -83,34 +83,17 @@ public class HomeController {
 			redirectURI = "redirect:main.do";	
 		// 신규회원이면 냉장고 재료 선택 mainRef로
 		}else {
-
-			System.out.println("===>> "+user);
-			
-
 			//DB에 새로운 회원 insert
-
 			user.setM_id(id);
-			
 			if(image.equals("undefined")) {
 				user.setM_profile(defaultImage);
-			}
-			else {
-				user.setM_profile(image);
-			}
+			}			
 			user.setM_nickname(nickname);
 			user.setM_logintype(type);
-
 			user.setM_profile(image);
 			
-
-			user.setM_profile(image);			
-
 			userService.insert(user);
-			////// 여기까진 진행되다가 안된다.
-
-			refriService.create(id);
-			
-			
+	
 			refriService.create(id);
 			
 			redirectURI ="redirect:/ref/mainRef.do";
