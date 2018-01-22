@@ -13,7 +13,6 @@ public class Refri {
 	private String r_item_state;
 	private String type_id;
 	private String ingredients_id;
-	
 	public String getR_num() {
 		return r_num;
 	}
@@ -73,5 +72,7 @@ public class Refri {
 	}
 	public void setIngredients_id(String ingredients_id) {
 		this.ingredients_id = ingredients_id;
-	}	
+	}
+	
+	
 }
