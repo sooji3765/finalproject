@@ -80,7 +80,7 @@ public class HomeController {
 		
 		// DB에 저장된 USER 이면  main으로
 		if(id.equals(userService.checkMember(id))){
-			redirectURI = "redirect:main.do";	
+			redirectURI = "redirect:/ref/mainRef.do";	
 		// 신규회원이면 냉장고 재료 선택 mainRef로
 		}else {
 			//DB에 새로운 회원 insert
