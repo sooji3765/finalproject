@@ -44,8 +44,8 @@
     		Kakao.Auth.logout(function(){
     			setTimeout(function(){
     				location.href="/login.do";
-    				HttpSession session= request.getSession();
-					session.invalidate();
+    				//HttpSession session= request.getSession();
+					//session.invalidate();
     				},1000);
     				});
     					
