@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -25,6 +26,10 @@
     <!-- Custom styles for this template -->
     <link href="/resources/css/freelancer.min.css" rel="stylesheet">
     
+    <!-- 카카오톡 로그인 -->
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    
+    
     <!-- 냉장고 아이디 검색  -->
     <script>
 		function SearchIdChk(){
@@ -32,6 +37,20 @@
 			window.open("/myPage/modify.do","width=500, height=300, resizable= yes, scrollbars = yes");
 		}
 	</script>
+	<script type='text/javascript'>
+       	
+        Kakao.init('f9d11ad5a866d8080d8f0f77144fa42c');
+    	function ktout(){
+    		Kakao.Auth.logout(function(){
+    			setTimeout(function(){
+    				location.href="/login.do";
+    				//HttpSession session= request.getSession();
+					//session.invalidate();
+    				},1000);
+    				});
+    					
+    	}    
+    </script>
 
 </head>
   <body id="page-top">
@@ -47,22 +66,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/review/reviewMain.do">Talk</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">리뷰</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/alarm/mainAlarm.do">Alarm</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">알림</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/bookmark/bookmarkMain.do">Mark</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#check_r">북마크</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/myPage/myPageMain.do">My</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/myPage/myPageMain.do">My HOME</a>
             </li>
           </ul>
         </div>
@@ -76,6 +89,8 @@
         <img class="img-fluid mb-5 d-block mx-auto" src="${image}" width="200" height="200" alt="">
         <h1 class="text-uppercase mb-0">${user.m_nickname}님의   Page</h1>
         <hr class="star-light">
+        <input type="button" value="로그아웃" onclick="ktout()">
+        
       </div>
     </header>
 
