@@ -122,7 +122,7 @@
             </tr>
             <tr class="danger">
                 <td>냉장고 ID</td>
-                <td>${user.r_num} <input type="button" value="냉장고 ID 변경" onclick="SearchIdChk()">
+                <td>${user.m_ref} <input type="button" value="냉장고 ID 변경" onclick="SearchIdChk()">
                 </td>
             </tr>
         </tbody>

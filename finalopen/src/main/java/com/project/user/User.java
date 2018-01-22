@@ -9,7 +9,16 @@ public class User {
 	private String m_logintype;
 	private String m_profile;
 	private Timestamp m_regdate;
+	private String m_ref;
 	
+	public String getM_ref() {
+		return m_ref;
+	}
+
+	public void setM_ref(String m_ref) {
+		this.m_ref = m_ref;
+	}
+
 	public User() {}
 	
 	public String getM_id() {

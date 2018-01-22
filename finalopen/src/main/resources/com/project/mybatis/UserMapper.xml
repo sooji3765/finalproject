@@ -7,8 +7,8 @@
    
     <insert id="insert" parameterType="User">
 
-    	INSERT INTO member(m_id, m_nickname, m_picture, m_logintype, m_regdate) 
-        VALUES (#{m_id}, #{m_nickname}, #{m_profile}, #{m_logintype}, sysdate)
+    	INSERT INTO member(m_id, m_nickname, m_picture, m_logintype, m_regdate, m_ref) 
+        VALUES (#{m_id}, #{m_nickname}, #{m_profile}, #{m_logintype}, sysdate, #{m_id})
 
 
     </insert>
