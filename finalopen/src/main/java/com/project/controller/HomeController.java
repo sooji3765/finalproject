@@ -14,6 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import org.springframework.web.bind.annotation.RequestParam;
+import com.project.refri.Refri;
+
 import com.project.refri.RefriService;
 import com.project.user.User;
 import com.project.user.UserService;
@@ -26,10 +29,11 @@ public class HomeController {
 	
 	@Autowired
 	private UserService userService;
+
 	@Autowired
 	private RefriService refriService;
-	
-	
+
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
@@ -67,7 +71,6 @@ public class HomeController {
 	//로그인 하기전 체크
 	@RequestMapping(value = "/logincheck.do")
 	public String logincheck(String id, String nickname, String image,String type, HttpSession session) {
-		System.out.println("===>> "+id);
 		String redirectURI ="";
 		String defaultImage = "/resource/img/profile.png";
 		session.setAttribute("memId", id);
@@ -80,8 +83,12 @@ public class HomeController {
 			redirectURI = "redirect:main.do";	
 		// 신규회원이면 냉장고 재료 선택 mainRef로
 		}else {
+
 			System.out.println("===>> "+user);
 			
+
+			//DB에 새로운 회원 insert
+
 			user.setM_id(id);
 			
 			if(image.equals("undefined")) {
@@ -92,9 +99,17 @@ public class HomeController {
 			}
 			user.setM_nickname(nickname);
 			user.setM_logintype(type);
+
 			user.setM_profile(image);
 			
+
+			user.setM_profile(image);			
+
 			userService.insert(user);
+			////// 여기까진 진행되다가 안된다.
+
+			refriService.create(id);
+			
 			
 			refriService.create(id);
 			
