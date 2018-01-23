@@ -18,10 +18,11 @@ public class RefController {
 	public String mainRef() {
 		return "/ref/mainRef";
 	}
-	@RequestMapping("selectRef.do")
-	public String selectRef() {
-		return "/ref/selectRef";
+	@RequestMapping("newRef.do")
+	public String newRef() {
+		return "/ref/newRef";
 	}
+
 	
 
 

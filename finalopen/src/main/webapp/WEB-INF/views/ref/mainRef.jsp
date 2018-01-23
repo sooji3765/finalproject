@@ -63,7 +63,7 @@
       	<div class="container">
       		<input type="button" value="새로운 냉장고 사용" onclick="javascript:location.href='/ref/selectRef.do';"/>
       		
-      		<h3 class="text-uppercase mb-0">기존 냉장고 연결</h3>
+      		<input type="button" value="기존 냉장고 사용" onclick="javascript:location.href='/ref/newRef.do';"/>
       		
 		</div>
        
