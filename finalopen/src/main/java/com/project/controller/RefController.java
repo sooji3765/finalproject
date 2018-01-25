@@ -22,6 +22,10 @@ public class RefController {
 	public String newRef() {
 		return "/ref/newRef";
 	}
+	@RequestMapping("result.do")
+	public String result() {
+		return "/ref/result";
+	}
 
 	
 

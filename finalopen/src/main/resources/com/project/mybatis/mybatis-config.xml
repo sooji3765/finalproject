@@ -16,7 +16,6 @@
     <mappers>
         <mapper resource="/com/project/mybatis/UserMapper.xml" />
         <mapper resource="/com/project/mybatis/RefriMapper.xml" />
-
     	<mapper resource="/com/project/mybatis/ReviewMapper.xml"/>
     	<mapper resource="/com/project/mybatis/IngreMapper.xml"/>
     </mappers>
