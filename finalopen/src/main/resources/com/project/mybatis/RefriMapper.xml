@@ -18,12 +18,28 @@
     		type_id varchar2(100),
     		ingredients_id varchar2(100)
           )
-
+          
 	</insert>
-  
-   
-    <insert id="insert" parameterType="Refri">
-    	INSERT INTO refri_${m_id}(r_num, r_date) VALUES (#{r_num},sysdate)
+	<insert id="create_seq">
+		CREATE SEQUENCE R_NUM_${value}_SEQ
+          start with 1
+          increment by 1
+          maxvalue 10000
+	</insert>
+  	
+    <insert id="insertIngre" parameterType="hashMap">
+    	INSERT INTO refri_${ref_id} (r_num, r_date, r_item, r_item_amount, r_item_unit, r_item_space,r_item_time,r_item_state,type_id,ingredients_id)
+    	VALUES 
+    	(r_num_${ref_id}_seq.nextval,
+    	sysdate,
+    	#{refri.r_item},
+    	#{refri.r_item_amount},
+    	#{refri.r_item_unit},
+    	#{refri.r_item_space},
+    	#{refri.r_item_time},
+    	'신선',
+    	#{refri.type_id},
+    	#{refri.ingredients_id})    	 
     </insert>
     
 </mapper>

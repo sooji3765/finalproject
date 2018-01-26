@@ -98,6 +98,7 @@ public class HomeController {
 			userService.insert(user);
 
 			refriService.create(id);
+			refriService.create_seq(id);
 			
 			redirectURI ="redirect:/ref/mainRef.do";
 		}

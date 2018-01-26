@@ -23,6 +23,8 @@
     <update id="modifyUser" parameterType="User">
     	UPDATE member set m_rum=#{m_rnum} WHERE m_id=#{m_id} 
     </update>
- 
+ 	<select id="checkRef" parameterType="String" resultType="String">
+    	SELECT m_ref FROM member WHERE m_id= #{m_id}
+    </select>
  
 </mapper>

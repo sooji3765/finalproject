@@ -35,4 +35,10 @@ public class UserServiceImpl implements UserService{
 		userMapper.modifyUser(user);		
 	}
 
+	@Override
+	public String checkRef(String id) {
+		
+		return userMapper.checkRef(id);
+	}
+
 }
