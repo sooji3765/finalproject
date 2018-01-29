@@ -45,7 +45,10 @@ public class RefController {
 	public String insertIngre(String[] ingre, int[] r_item_amount, String[] r_item_unit, String[] r_item_space,HttpSession session) {
 		String id = (String)session.getAttribute("memId");
 		String ref_id = userService.checkRef(id);
-			
+		
+		
+		
+		
 		for(int i=0;i<ingre.length;i++) {
 			HashMap<String, Object> map = new HashMap(); 
 			Ingredients ingredients = ingreService.selectOne(ingre[i]);
