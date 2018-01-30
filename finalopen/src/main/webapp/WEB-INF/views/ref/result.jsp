@@ -7,17 +7,12 @@
 <script>
 function remove_this()
 {
-	//ajax 를 이용해서 DATABASE 에서 idx 해당하는 내용을 지우도록 요청한다.
-
 	if (! confirm("삭제하시겠습니까?")) return;
 
-	// 이 부분은 seobangnim.com 의 소스를 완전참조했습니다.
-	// http://seobangnim.com/zbxe/?document_srl=15893
-
-	var lo_this       = window.event.srcElement; // 이벤트가 발생한 객체가져 옴 여기선 버튼 이겠지?
-	var lo_table      = lo_this.parentNode.parentNode.parentNode  //버튼으로 부터 위로 4번째 객체는 테이블이지 
-	var li_row_index  = lo_this.parentNode.parentNode.rowIndex; // 버튼으로 부터 위로 2번째니깐 TR 이겠지 그 TR 의 INDEX 값
-	lo_table.deleteRow(li_row_index); // 위에서 찾은 인덱스에 해당하는 TR 을 삭제하라...
+	var lo_this       = window.event.srcElement; 
+	var lo_table      = lo_this.parentNode.parentNode.parentNode  
+	var li_row_index  = lo_this.parentNode.parentNode.rowIndex; 
+	lo_table.deleteRow(li_row_index); 
 }
 </script>
 
