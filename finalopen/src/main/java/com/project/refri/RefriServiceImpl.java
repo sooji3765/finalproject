@@ -1,6 +1,7 @@
 package com.project.refri;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,8 +34,18 @@ public class RefriServiceImpl implements RefriService{
 		// TODO Auto-generated method stub
 		refriMapper.insertIngre(map);
 	}
-
 	
+	@Override
+	public List<Refri> selectAll(String refri_num) {
+		// TODO Auto-generated method stub
+		return refriMapper.selectAll(refri_num);
+	}
+	@Override
+	public void updateTime(HashMap<String, Object> map) {
+		refriMapper.updateTime(map);
+		
+	}
+
 	
 	
 
