@@ -56,8 +56,7 @@ $(document).ready(function(){
 						<th>수량/용량</th>
 						<th>보관일</th>
 						<th>보관위치</th>
-						<th>신선도</th>
-						<th>유통기한</th>				
+						<th>신선도</th>			
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -71,7 +70,6 @@ $(document).ready(function(){
 								<!-- <td><fmt:formatDate value="${refri.r_date }" pattern="yyyy-MM-dd"/></td> -->
 								<td>${refri.r_item_space}</td>
 								<td>${refri.r_item_state}</td>
-								<td>${refri.r_item_time}</td>
 								<td>
                             	<a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                          	   	<a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a></td>
