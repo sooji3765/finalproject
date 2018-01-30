@@ -36,7 +36,7 @@ function remove_this()
 <table name="list_ingre">
 <c:forEach items="${ingre}" var="ingre" varStatus="status">
 	<tr>
-		<td>${ingre}
+		<td>${ingre} 
 			<input type="hidden" id="ingre" name="ingre" value="${ingre}"/>
 		</td>
 		<td><input type="number" id="r_item_amount" name="r_item_amount"/>
