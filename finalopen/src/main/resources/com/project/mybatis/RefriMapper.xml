@@ -20,7 +20,7 @@
           )
           
 	</insert>
-	<insert id="create_seq">
+	<insert id="create_seq" parameterType="String">
 		CREATE SEQUENCE R_NUM_${value}_SEQ
           start with 1
           increment by 1
@@ -41,5 +41,13 @@
     	#{refri.type_id},
     	#{refri.ingredients_id})    	 
     </insert>
+     <select id="selectAll" parameterType="String" resultType="Refri">
+     	SELECT * FROM refri_${value} 
+     </select>
+     
+     <update id="updateTime" parameterType="hashMap">
+     	update refri_${id} set r_item_time=${r_item_time} where r_num=${r_num}
+     </update> 
+
     
 </mapper>
