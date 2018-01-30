@@ -1,13 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
-
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Welcome Our Site</title>
-  <meta charset="utf-8">
+<title>회원관리 페이지</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -25,33 +22,8 @@
 
     <!-- Custom styles for this template -->
     <link href="/resources/css/freelancer.min.css" rel="stylesheet">
-    
-    <!-- 카카오톡 로그인 -->
-    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-    
-    
-    <!-- 냉장고 아이디 검색  -->
-    <script>
-		function SearchIdChk(){
-			window.name ="modify";
-			window.open("/myPage/modify.do","width=500, height=300, resizable= yes, scrollbars = yes");
-		}
-	</script>
-	<script type='text/javascript'>
-       	
-        Kakao.init('f9d11ad5a866d8080d8f0f77144fa42c');
-    	function ktout(){
-    		Kakao.Auth.logout(function(){
-    			setTimeout(function(){
-    				location.href="/login.do";
-    				//HttpSession session= request.getSession();
-					//session.invalidate();
-    				},1000);
-    				});
-    					
-    	}    
-    </script>
-
+   
+  	
 </head>
   <body id="page-top">
 
@@ -65,6 +37,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+         	 <c:if test="${id==null }">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/login.do">Login</a>
+              </c:if>
+              <c:if test="${id!=null }">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#">Logout</a>
+              </c:if>
+            </li>
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/review/reviewMain.do">Talk</a>
             </li>
@@ -81,56 +61,38 @@
         </div>
       </div>
     </nav>
-    
-    
+
     <!-- Header -->
     <header class="masthead bg-primary text-white text-center">
       <div class="container">
-        <img class="img-fluid mb-5 d-block mx-auto" src="${image}" width="200" height="200" alt="">
-        <h1 class="text-uppercase mb-0">${user.m_nickname}님의   Page</h1>
-        <hr class="star-light">
-        <input type="button" value="로그아웃" onclick="ktout()">
-        
+        <h4 class="text-uppercase">${user.m_nickname}님 마이페이지에 오신것을 환영합니다.</h4>
       </div>
     </header>
 
     <!-- Portfolio Grid Section -->
-    <section class="portfolio" id="portfolio">
+    <section class="portfolio">
       <div class="container">
-        <h2 class="text-center text-uppercase text-secondary mb-0">회원 관리</h2>
-        <hr class="star-dark mb-5">
-        <table class="table table-striped table-bordered table-hover">
-        <thead>
-        </thead>
-        <tbody>
-            <tr>
-                <td>ID</td>
-                <td>${user.m_id}</td>
-            </tr>
-            <tr>
-                <td>NickName</td>
-                <td>${user.m_nickname}</td>
-            </tr>
-            <tr>
-                <td>가입 날짜</td>
-                <td>${user.m_regdate}</td>
-            </tr>
-            <tr class="success">
-                <td>로그인 타입</td>
-                <td>${user.m_logintype }</td>
-               
-            </tr>
-            <tr class="danger">
-                <td>냉장고 ID</td>
-                <td>${user.m_ref} <input type="button" value="냉장고 ID 변경" onclick="SearchIdChk()">
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-
-        
-      </div>
+	  <ul class="nav nav-tabs">
+	    <li class="active"><a data-toggle="tab" href="#home"> USER INFO </a></li>
+	    <li><a data-toggle="tab" href="#menu1"> MY REVIEW </a></li>
+	    <li><a data-toggle="tab" href="#menu2"> MY REFRIGERATOR </a></li>
+	  </ul>
+	
+	  <div class="tab-content">
+	    <div id="home" class="tab-pane fade in active">
+	      </br>	
+	      </br>
+	      <jsp:include page="/myPage/userInfo.do" flush="true"></jsp:include>
+	    </div>
+	    <div id="menu1" class="tab-pane fade">
+	      <jsp:include page="/myPage/myReview.do" flush="true"></jsp:include>
+	    </div>
+	    <div id="menu2" class="tab-pane fade">
+	      <jsp:include page="/myPage/myRef.do" flush="true"></jsp:include>
+	    </div>
+	    
+ 	 </div>
+	</div>
     </section>
 
     <!-- About Section -->
@@ -156,6 +118,69 @@
     </section>
 
    
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Location</h4>
+            <p class="lead mb-0">2215 John Daniel Drive
+              <br>Clark, MO 65243</p>
+          </div>
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Around the Web</h4>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fa fa-fw fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fa fa-fw fa-google-plus"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fa fa-fw fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fa fa-fw fa-linkedin"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fa fa-fw fa-dribbble"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-uppercase mb-4">About Freelancer</h4>
+            <p class="lead mb-0">Freelance is a free to use, open source Bootstrap theme created by
+              <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="copyright py-4 text-center text-white">
+      <div class="container">
+        <small>Copyright &copy; Your Website 2017</small>
+      </div>
+    </div>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-to-top d-lg-none position-fixed ">
+      <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+
+  
+
     <!-- Bootstrap core JavaScript -->
     <script src="/resources/vendor/jquery/jquery.min.js"></script>
     <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -170,9 +195,10 @@
 
     <!-- Custom scripts for this template -->
     <script src="/resources/js/freelancer.min.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   </body>
 
 </html>
-         
-         
